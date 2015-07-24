@@ -57,4 +57,27 @@ DocuSign.prototype.getRecipientView = function (envelopeId, recipientRequest) {
     });
 };
 
+DocuSign.prototype.getEnvelopeStatus = function (envelopeId) {
+  var self = this;
+
+  return self.login()
+    .then(function (response) {
+      var url = response.baseUrl + endpoint.getEnvelopeStatus(envelopeId);
+      return self.helper.get(url, {}, 'GET');
+    });
+};
+
+DocuSign.prototype.getSenderView = function (envelopeId, recipientRequest) {
+  var self = this;
+
+  return self.helper
+    .validateSchema(recipientRequest)
+    .then(function () {
+      return self.login();
+    })
+    .then(function (response) {
+      var url = response.baseUrl + endpoint.getSenderView(envelopeId);
+      return self.helper.get(url, recipientRequest, 'POST');
+    });
+};
 module.exports = DocuSign;

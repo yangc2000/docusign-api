@@ -1,14 +1,10 @@
 {
   "name": "docusign-api",
-  "version": "0.0.1",
+  "version": "0.0.1-tab32",
   "description": "Promise based DocuSign API for NodeJS",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hadynz/docusign-api.git"
   },
   "keywords": [
     "docusign",

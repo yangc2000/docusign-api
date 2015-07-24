@@ -8,6 +8,12 @@ var endpoint = {
 
   getRecipientView: function (envelopeId) {
     return this.createEnvelopeFromTemplate + '/' + envelopeId + '/views/recipient';
+  },
+  getEnvelopeStatus: function(envelopeId) {
+  	return this.createEnvelopeFromTemplate + '/' + envelopeId;
+  },
+  getSenderView: function (envelopeId) {
+    return this.createEnvelopeFromTemplate + '/' + envelopeId + '/views/sender';
   }
 };
 

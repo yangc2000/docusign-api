@@ -4,18 +4,21 @@ var path = require('path');
 var _ = require('lodash');
 
 function yieldDocuments(body) {
-  if (body.compositeTemplates) {
-    return _.map(body.compositeTemplates, function(template){
-      var document = _.clone(template.document);
+  // Tab32 change.
+  // leaving the following block will have issue with compositeTemplate
+  // if (body.compositeTemplates) {
+  //   return _.map(body.compositeTemplates, function(template){
+  //     var document = _.clone(template.document);
 
-      if (template.compositeTemplateId) {
-        document.compositeTemplateId = template.compositeTemplateId;
-      }
+  //     if (template.compositeTemplateId) {
+  //       document.compositeTemplateId = template.compositeTemplateId;
+  //     }
 
-      return document;
-    });
-  }
-
+  //     return document;
+  //   });
+  // }
+  // End Tab32 change.
+  
   if (body.documents) {
     return body.documents;
   }
