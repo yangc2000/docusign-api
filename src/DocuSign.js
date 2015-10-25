@@ -80,4 +80,16 @@ DocuSign.prototype.getSenderView = function (envelopeId, recipientRequest) {
       return self.helper.get(url, recipientRequest, 'POST');
     });
 };
+
+DocuSign.prototype.deleteEnvelope = function (envelopeId) {
+  var self = this;
+
+  var msg = { "envelopeIds" : [ envelopeId ] };
+  return self.login()
+    .then(function (response) {
+      var url = response.baseUrl + endpoint.deleteEnvelope(envelopeId);
+      return self.helper.get(url, msg, 'PUT');
+    });
+};
+
 module.exports = DocuSign;

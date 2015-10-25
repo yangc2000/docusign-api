@@ -6,6 +6,8 @@ var endpoint = {
 
   createEnvelopeFromTemplate: '/envelopes',
 
+  moveEnvelope: '/folders',
+
   getRecipientView: function (envelopeId) {
     return this.createEnvelopeFromTemplate + '/' + envelopeId + '/views/recipient';
   },
@@ -14,7 +16,12 @@ var endpoint = {
   },
   getSenderView: function (envelopeId) {
     return this.createEnvelopeFromTemplate + '/' + envelopeId + '/views/sender';
+  },
+  deleteEnvelope : function(envelopeId) {
+    return this.moveEnvelope + '/recyclebin';
+
   }
+
 };
 
 module.exports = endpoint;

@@ -1,6 +1,6 @@
 {
   "name": "docusign-api",
-  "version": "0.0.1-tab32",
+  "version": "0.0.2-tab32",
   "description": "Promise based DocuSign API for NodeJS",
   "main": "index.js",
   "scripts": {
