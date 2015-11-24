@@ -6,14 +6,20 @@ var endpoint = require('./endpoints');
 var Helper = require('./helper/Helper');
 
 function DocuSign(config, req) {
+  this.isProduction = config.isProduction;
   schema.config.assert(config);
 
   this.helper = new Helper(config, req || request);
 }
 
 DocuSign.prototype.login = function () {
+  console.log("in DocuSign login... isProduction=" + this.isProduction);
+  var url = this.isProduction ? 
+            'https://www.docusign.net/restapi/v2/login_information' :
+            'https://demo.docusign.net/restapi/v2/login_information';
+
   return this.helper
-    .get('https://demo.docusign.net/restapi/v2/login_information', '', 'GET')
+    .get(url, '', 'GET')
     .then(function (response) {
       return response.loginAccounts[0];
     });
